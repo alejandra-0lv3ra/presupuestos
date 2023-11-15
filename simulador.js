@@ -4,23 +4,34 @@ function calcularPresupuesto() {
 
     // Ingresos
     while (true) {
-        ingresos = +prompt("Ingresa tu presupuesto");
-        while  (ingreso !== 1,2,3,4,5,6,7,8,9) {
+        let ingreso = +prompt("Ingresa tu presupuesto");
+        if (isNaN(ingreso)) {
             alert("Ingresa un valor numérico válido.");
-        }
-       // Gastos
-    while (true) {
-        gastos = +prompt("Ingresa tu presupuesto");
-        while  (gastos !== 1,2,3,4,5,6,7,8,9) {
-            alert("Ingresa un valor numérico válido.");
-        }
+        } 
+        break;
     }
-    }  
+
+    // Gastos
+    while (true) {
+        let gasto = +prompt("Ingresa tus gastos ");
+        if (isNaN(gasto)) {
+            alert("Ingresa un valor numérico válido.");
+        }
+
+        gastos += gasto;
+
+        // Pregunta si quieren agregar otro gasto
+        let agregarOtroGasto = confirm("¿Quieres agregar otro gasto?");
+        if (!agregarOtroGasto) 
+        break;
+    }
+
+    // Calcular el presupuesto
+    const presupuesto = ingresos - gastos;
+
+    // Mostrar el resultado
+    alert(`El resultado es $${presupuesto}`);
 }
 
-// Calcular el presupuesto
-const presupuesto = ingresos - gastos;
-
-// Mostrar el resultado
-let resultado = 
-alert("el resultado es $${presupuesto}"); 
+// Llamar a la función para probar
+calcularPresupuesto();
